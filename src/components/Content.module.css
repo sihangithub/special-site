@@ -1,0 +1,175 @@
+.shapesBackground {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.shape {
+  position: absolute;
+  opacity: 0.3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.shape1 {
+  composes: shape;
+  width: 80px;
+  height: 80px;
+  background: #646cff;
+  border-radius: 50%;
+  animation: expandOutTopLeft 8s infinite linear;
+}
+
+.shape2 {
+  composes: shape;
+  width: 100px;
+  height: 100px;
+  background: #535bf2;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  animation: expandOutTopRight 8s infinite linear;
+}
+
+.shape3 {
+  composes: shape;
+  width: 60px;
+  height: 60px;
+  background: #8082f8;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  animation: expandOutBottom 8s infinite linear;
+}
+
+.shape4 {
+  composes: shape;
+  width: 70px;
+  height: 70px;
+  background: #7b5cf5;
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  animation: expandOutTop 8s infinite linear;
+}
+
+.shape5 {
+  composes: shape;
+  width: 90px;
+  height: 90px;
+  background: #6e4ff2;
+  border-radius: 4px;
+  animation: expandOutLeft 8s infinite linear;
+}
+
+.shape6 {
+  composes: shape;
+  width: 50px;
+  height: 50px;
+  background: #8f7af7;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  animation: expandOutRight 8s infinite linear;
+}
+
+.star {
+  position: absolute;
+  pointer-events: none;
+  width: 15px;
+  height: 15px;
+  background: #ffd700;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  animation: starAnim 1s forwards;
+}
+
+.flyToCamera {
+  animation: flyToCamera 1s forwards;
+}
+
+@keyframes expandOutTopLeft {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(0.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-200%, -200%) rotate(360deg) scale(3);
+    opacity: 0;
+  }
+}
+
+@keyframes expandOutTopRight {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(0.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(100%, -200%) rotate(360deg) scale(3);
+    opacity: 0;
+  }
+}
+
+@keyframes expandOutBottom {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(0.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, 100%) rotate(360deg) scale(3);
+    opacity: 0;
+  }
+}
+
+@keyframes expandOutTop {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(0.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -200%) rotate(360deg) scale(3);
+    opacity: 0;
+  }
+}
+
+@keyframes expandOutLeft {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(0.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-200%, -50%) rotate(360deg) scale(3);
+    opacity: 0;
+  }
+}
+
+@keyframes expandOutRight {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(0.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(100%, -50%) rotate(360deg) scale(3);
+    opacity: 0;
+  }
+}
+
+@keyframes starAnim {
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+@keyframes flyToCamera {
+  0% {
+    transform: perspective(1000px) scale(1) translateZ(0);
+    opacity: 1;
+  }
+  100% {
+    transform: perspective(1000px) scale(4) translateZ(1000px);
+    opacity: 0;
+  }
+}
+
+.contentHidden {
+  display: none;
+}
